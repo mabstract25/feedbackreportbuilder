@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" type="text/css" href="/feedbackreportbuilderstyles.css">
+    
+</head>
+<body onload="parse()">
+<table class ="pagetable">
+  <thead class="header">
+    <tr>
+      <th>
+        <p class="Headercompany">aberdeen</p>
+        <h1 class="Headertitle">ACCELERATE Module Feedback Report</h1>
+        <h2 class="Headersubtitle">Thursday May 29th 2025</h2>
+        <hr class="Headerunderline">
+        
+      </th>
+    </tr>
+    </thead>
+  <tbody>
+    <tr><td><div class="sectiontitle"><h3 >Overall Average Scores</h3></div></td></tr>
+  <tr><td>
+
+<table class="piechartable">
+    <tr>
+        <td><p id="overall" class="overall">Overall</p></td>
+        <td><p id="content" class="content">Content</p></td>
+        <td><p id="facilitator" class="facilitator">Facilitator</p></td>
+    </tr>
+    <tr>
+      <td>
+        <div class="piecontainer">
+          <p id="overallscore" class="pienum">5.0</p>
+          <canvas id="overalldoughnut" class="Piechart"></canvas>
+        </div>
+      </td>
+      <td>
+        <div class="piecontainer">
+          <p id="contentscore" class="pienum">5.0</p>
+          <canvas id="contentdoughnut" class="Piechart"></canvas>
+        </div>
+      </td>
+      <td>
+        <div class="piecontainer">
+          <p id="facilscore" class="pienum">5.0</p>
+          <canvas id="facildoughnut" class="Piechart"></canvas>
+        </div>
+      </td>
+  </tr>
+</table>
+<table style="page-break-after: always;" class="barchartable">
+  <tr><td><div class="sectiontitle"><h3>Individual Average Module Scores</h3></div></td></tr>
+  <tr>
+    <td>
+      <div class="barchartcell">
+      <canvas id="modulebarchart" class="barchart"></canvas>
+      </div>
+    </td>
+  </tr>
+    
+</table>
+</div>
+<div id="commentdiv" class="commentcontainer"><div class="sectiontitle"><h3>Selected Delegate Feedback</h3></div></div>
+
+</td></tr>
+</tbody>
+<tfoot class ="footer">
+  <tr>
+    <th>
+      <!-- <div class="Footerunderlinecell"><hr class="Footerunderline"></div> -->
+    </th>
+  </tr>
+</tfoot>
+</table>
+<script src="/feedbackreportbuilder.js">
+</script>
+</body>
+</html>

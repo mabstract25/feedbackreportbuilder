@@ -1,0 +1,201 @@
+/* //Universal Styles// */
+body{
+    margin: 0px;
+    width: 29.7cm;
+    height: 21cm;
+    /* background-image: url(/A4PageBG.png);
+    background-repeat: repeat-y;
+    background-size: 100%; */
+    
+   }
+
+h1, h2, h3 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+h3 {
+    margin: 0;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* //Class Styles// */
+
+
+
+.header {
+    height:50px;
+    text-align: left;
+    background-image: url(/aberdeenlogo.png);
+    background-repeat: no-repeat;
+    background-size: 200px;
+    background-position: 865px;
+    
+}
+
+.Headertitle {
+    font-size: 20pt;
+    margin: 15px 0px 0px;
+
+}
+
+.Headercompany {
+    font-size: 14pt;
+    margin: 25px 0px 0px;
+}
+
+.Headersubtitle {
+    font-size: 16pt;
+    margin: 15px 0px 10px;
+}
+
+.sectiontitle h3 {
+    font-size: 18pt;
+}
+
+.header th{
+    padding-left: 55px;
+    padding-right: 55px;
+    
+}
+
+.Headercompany {
+    font-weight: normal;
+}
+
+.Headerunderline {
+    border: 1px solid #94cfc0;
+}
+
+.Footerunderline {
+    border: 1px solid #94cfc0;
+    
+}
+
+.Footerunderlinecell {
+    display: block;
+    padding-bottom: 150px;
+}
+
+.footer {
+    height:150px;
+    /* background-color:#94cfc0;
+    background-image: url(/abstractlogowithstrapline.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right; */
+    
+}
+
+.overall, .content, .facilitator {
+    font-weight: bold;
+    font-size: 1.4em;
+    color: #4a6860;
+}
+
+.sectiontitle {
+    text-align: left;
+    background-color: #dff1ec;
+    padding: 10px 0px;
+    margin-left: 55px;
+    margin-right: 55px;
+}
+
+.sectiontitle h3 {
+    padding-left:5px;
+}
+
+/* Pie Chart Styles */
+.piecontainer {
+    position: relative;
+    
+}
+
+.piechartable{
+    width:100%;
+    text-align: center;
+    padding-bottom: 35px;
+}
+
+.pienum {
+    position: absolute;
+    padding: 0;
+    left:150px;
+    top:55px;
+    z-index: 2;
+    font-size:3em;
+    color: #4a6860;
+    text-align: center;
+    
+}
+
+.Piechart{
+    margin-left:auto;
+    margin-right:auto;
+    height: 250px;
+    width: 250px;
+}
+.logoplaceholder {
+    Height: 125px;
+    position:absolute;
+    top: 0px;
+    right:0px;
+}
+/*  */
+
+/* Bar Chart Styles */
+.barchart {
+    text-align: center;
+}
+
+.barchartcell {
+    position: relative;
+    width: 1000px;
+    height: 300px;
+    padding-left: 55px;
+    padding-top:15px;
+}
+
+.barchartable {
+    width:100%;
+    text-align: center;
+}
+
+
+.pagetable{
+    border-collapse: collapse;
+}
+
+/*  */
+
+/* Comment Styles */
+.commentcontainer{
+    
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+}
+
+.commentcontainer table{
+    padding-left:55px;
+    padding-right: 55px;
+    border-spacing: 10px;
+}
+
+.commentcontainer td{
+    padding-top:15px;
+    padding-bottom:15px;
+    padding-left:15px;
+    padding-right:15px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 2px solid #94cfc0;
+    background-color: white
+}
+
+
+
+
+/*  */
