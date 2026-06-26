@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* .pagecontainer {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 100px;
+} */
+
+
+
+.header {
+    position: fixed;
+    top:  0;
+    height: 100px;
+    width: 100%;
+    background-color: aqua;
+}
+
+.middle {
+    position: relative;
+    top: 100px;
+    max-height: 20cm;
+    overflow: hidden;
+}
+
+
+
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    background-color: aqua;
+}
+
+.pagetable {
+    break-after: always;
+}
+
+@page {
+    margin: 0;
+    
+}
+
+@media print {
+
+    .middle {
+        background-color: red;
+        padding-top: 50px;
+    }
+}
