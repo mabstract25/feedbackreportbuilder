@@ -4,6 +4,10 @@
     padding: 0;
 }
 
+.spacer {
+    height: 20px;
+}
+
 /* Header styles */
 
 .header {
@@ -62,6 +66,40 @@
 .sessionoverviewtable th {
     text-align: left;
     background-color: #d4ece6;
+}
+
+/* Overall Pie Charts */
+
+.overallexperiencecontainer {
+    text-align: center;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    border: 0.1rem solid #d4ece6;
+}
+
+.overalltitle {
+    background-color: #d4ece6;
+    padding: 1rem;
+}
+
+.overallpiecontainer {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1.5rem;
+}
+
+.pie1,.pie2,.pie3,.pie4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.piechart1,.piechart2,.piechart3,.piechart4 {
+    width: 50px;
+    height: 50px;
+    background-color: blue;
 }
 
 
