@@ -2,6 +2,7 @@ var delcomment = [];
 var deloverall = [];
 var delcontent = [];
 var delmodNPS = [];
+var delorgNPS = [];
 
 function parse() {
     var file = '/example.csv';
@@ -33,6 +34,7 @@ function parse() {
                 deloverall.push(testrow.overall);
                 delcontent.push(testrow.content);
                 delmodNPS.push(testrow.modNPS);
+                delorgNPS.push(testrow.orgNPS);
 
             
             };
@@ -40,14 +42,16 @@ function parse() {
                     return el != null;
                 });
             
-            deloverall = deloverall.filter(function(el) {
-                return el != null;
-            });
+            // Null filter not needed for score values.
+            // deloverall = deloverall.filter(function(el) {
+            //     return el != null;
+            // });
             
             deloverall = average(deloverall);
             delcontent = average(delcontent);
             delmodNPS = NPS(delmodNPS);
-            console.log(deloverall, delcontent, delmodNPS);
+            delorgNPS = NPS(delorgNPS);
+            console.log(deloverall, delcontent, delmodNPS, delorgNPS);
             // console.log(deloverall);
 
     }});
