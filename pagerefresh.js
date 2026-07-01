@@ -25,12 +25,14 @@ function parse() {
                     overall: results.data[i][21],
                     content: results.data[i][20],
                     modNPS: results.data[i][22],
+                    orgNPS: results.data[i][23]
                     
                 };
 
                 delcomment.push(testrow.comments);
                 deloverall.push(testrow.overall);
                 delcontent.push(testrow.content);
+                delmodNPS.push(testrow.modNPS);
 
             
             };
@@ -44,7 +46,8 @@ function parse() {
             
             deloverall = average(deloverall);
             delcontent = average(delcontent);
-            console.log(delcontent, deloverall)
+            delmodNPS = NPS(delmodNPS);
+            console.log(deloverall, delcontent, delmodNPS);
             // console.log(deloverall);
 
     }});
@@ -67,12 +70,23 @@ function NPS(arr) {
     let promoters = 0;
     let detractors = 0;
     let passives = 0;
+    const between = (x, min, max) => {
+        return x >= min && x <= max;
+    }
+
     for (const element of arr) {
         if (element >= 9) {
             promoters += 1;
-        }
+        } else if (between(element, 7, 8)) {
+            passives += 1;
+        } else if (between(element, 1, 6)) {
+            detractors += 1;
+        } else;
     }
-    console.log(promoters);
+    console.log(promoters, passives, detractors);
+
+    return parseFloat((((promoters - detractors) / arr.length) * 100).toFixed(0));
+
 };
 
 // Promoters - 9 & 10
