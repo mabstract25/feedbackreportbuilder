@@ -5,15 +5,15 @@ var delmodNPS = [];
 var delorgNPS = [];
 var facilexpholder = [];
 var delfacilexp = {
-    phrOne: "Delivered the content at a comfortable pace ",
+    phrOne: "Delivered the content at a comfortable pace",
     phrOneCount: 0,
-    phrTwo: "Explained things with clarity and structure ",
+    phrTwo: " Explained things with clarity and structure",
     phrTwoCount: 0,
-    phrThree: "Motivated me to engage with the learning ",
+    phrThree: " Motivated me to engage with the learning",
     phrThreeCount: 0,
-    phrFour: "Provided appropriate time to practise skills ",
+    phrFour: " Provided appropriate time to practise skills",
     phrFourCount: 0,
-    phrFive: "Shared relevant real-world experience ",
+    phrFive: "Shared relevant real-world experience",
     phrFiveCount: 0,
 }
 
@@ -116,26 +116,17 @@ function likertValues(arr, ref) {
     arr.forEach((element) => {
         let sploot = element.split("|");
         sploot.forEach((element) => {
-            
+            // NOW YOU NEED TO REMOVE SPACES FROM ENDS OF LINE WITH A NEW SPLIT
             if(element === ref.phrOne){
                 ref.phrOneCount += 1;
             };
             
         })
-        console.log(sploot.length);
+      
     });
     
-    // for (var i = 0; i < arr.length; i++) {
-        
-
-    //     // for (item of arr) {
-            
-    //     //     console.log(item)
-    //     //     // let sploot = item.split("|");
-            
-    //     // }
-        
-    // }
+    console.log(ref)
+  
     
 }
 
