@@ -3,6 +3,19 @@ var deloverall = [];
 var delcontent = [];
 var delmodNPS = [];
 var delorgNPS = [];
+var facilexpholder = [];
+var delfacilexp = {
+    phrOne: "Delivered the content at a comfortable pace",
+    phrOneCount: 0,
+    phrTwo: "Explained things with clarity and structure",
+    phrTwoCount: 0,
+    phrThree: "Motivated me to engage with the learning",
+    phrThreeCount: 0,
+    phrFour: "Provided appropriate time to practise skills",
+    phrFourCount: 0,
+    phrFive: "Shared relevant real-world experience",
+    phrFiveCount: 0,
+}
 
 function parse() {
     var file = '/example.csv';
@@ -26,16 +39,17 @@ function parse() {
                     overall: results.data[i][21],
                     content: results.data[i][20],
                     modNPS: results.data[i][22],
-                    orgNPS: results.data[i][23]
+                    orgNPS: results.data[i][23],
+                    facilexp: results.data[i][26],
                     
                 };
-
+                
                 delcomment.push(testrow.comments);
                 deloverall.push(testrow.overall);
                 delcontent.push(testrow.content);
                 delmodNPS.push(testrow.modNPS);
                 delorgNPS.push(testrow.orgNPS);
-
+                facilexpholder.push(testrow.facilexp);
             
             };
             delcomment = delcomment.filter(function (el) {
@@ -51,8 +65,8 @@ function parse() {
             delcontent = average(delcontent);
             delmodNPS = NPS(delmodNPS);
             delorgNPS = NPS(delorgNPS);
-            console.log(deloverall, delcontent, delmodNPS, delorgNPS);
-            // console.log(deloverall);
+            console.log(facilexpholder);
+            likertValues(facilexpholder, delfacilexp);
 
     }});
 };
@@ -91,6 +105,20 @@ function NPS(arr) {
 
     return parseFloat((((promoters - detractors) / arr.length) * 100).toFixed(0));
 
+};
+
+function likertValues(arr, ref) {
+    console.log(arr);
+    console.log(ref.phrOne);
+    let count = 0;
+    let source = arr;
+    
+    // for (entry of source)  {
+    //         if ;
+    //     };
+        
+    // console.log(count);
+    
 };
 
 // Promoters - 9 & 10
