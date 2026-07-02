@@ -1,3 +1,5 @@
+const doughnut1 = document.getElementById('doughnut1');
+
 var headerarr = [];
 var delcomment = [];
 var deloverall = [];
@@ -90,10 +92,6 @@ function parse() {
                     return el != null;
                 });
             
-            // Null filter not needed for score values.
-            // deloverall = deloverall.filter(function(el) {
-            //     return el != null;
-            // });
             
             // Main calculation and processing functions.
             deloverall = average(deloverall);
@@ -102,6 +100,20 @@ function parse() {
             delorgNPS = NPS(delorgNPS);
             likertValues(facilexpholder, delfacilexp);
             lclikertValues(LC1holder, LC1)
+
+            // Doughnut chart generation
+
+            new Chart(doughnut1, {
+                type: 'doughnut',
+                data: {
+                    datasets: [{
+                        data: [deloverall,(5.0 - deloverall)],
+                    }]
+                },
+                options: {
+                    cutout: '80%'
+                }
+            });
             
     }});
 };

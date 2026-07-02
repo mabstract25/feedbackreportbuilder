@@ -99,8 +99,20 @@
 .piechart1,.piechart2,.piechart3,.piechart4 {
     width: 150px;
     height: 150px;
-    background-color: blue;
 }
+
+.piecontainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.doughtext {
+    position: absolute;
+    font-size: 2em;
+}
+
 
 .doughchart {
     margin-left:auto;

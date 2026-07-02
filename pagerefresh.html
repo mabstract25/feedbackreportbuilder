@@ -6,7 +6,7 @@
     <title>Feedback Report</title>
     <link rel="stylesheet" type="text/css" href="/pagerefresh.css">
     <script type="text/javascript" src="/papaparse.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 <body onload="parse()">
@@ -52,7 +52,8 @@
             <div class="overallpiecontainer">
                 <div class="pie1">
                     <p class="pietitle">Course</p>
-                    <div class="piechart1">
+                    <div class="piechart1 piecontainer">
+                        <p class="doughtext" id="dough1text">Text</p>
                         <canvas id="doughnut1" class="doughchart"></canvas>
                     </div>  
                 </div>
