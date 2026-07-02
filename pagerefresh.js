@@ -1,5 +1,8 @@
 const doughnut1 = document.getElementById('doughnut1');
-
+const doughnut1label = document.getElementById('dough1text');
+const doughnut2 = document.getElementById('doughnut2');
+const doughnut2label = document.getElementById('dough2text');
+console.log(doughnut1label)
 var headerarr = [];
 var delcomment = [];
 var deloverall = [];
@@ -103,17 +106,26 @@ function parse() {
 
             // Doughnut chart generation
 
-            new Chart(doughnut1, {
+            function doughnutChart(canvasID, dataID, textID){
+                new Chart(canvasID, {
                 type: 'doughnut',
                 data: {
                     datasets: [{
-                        data: [deloverall,(5.0 - deloverall)],
+                        data: [dataID,(5.0 - dataID)],
+                        backgroundColor: ['#94cfc0', '#dff1ec']
                     }]
                 },
                 options: {
                     cutout: '80%'
                 }
-            });
+                });
+                textID.textContent = dataID;
+            }
+
+            doughnutChart(doughnut1, deloverall, doughnut1label);
+            doughnutChart(doughnut2, delcontent, doughnut2label);
+
+            
             
     }});
 };
