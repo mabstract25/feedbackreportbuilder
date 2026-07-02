@@ -111,6 +111,7 @@
 .doughtext {
     position: absolute;
     font-size: 2em;
+    z-index: 1;
 }
 
 
@@ -119,6 +120,19 @@
     margin-right:auto;
     height: 150px;
     width: 150px;
+}
+
+.NPSsvgFront {
+    position: absolute;
+    height: 80%;
+    width: 80%;
+}
+
+.NPSsvgBG {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding-top: 0.55em;
 }
 
 

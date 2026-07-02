@@ -2,6 +2,10 @@ const doughnut1 = document.getElementById('doughnut1');
 const doughnut1label = document.getElementById('dough1text');
 const doughnut2 = document.getElementById('doughnut2');
 const doughnut2label = document.getElementById('dough2text');
+const NPS1 = document.getElementById('NPSFRONT1');
+const NPS1label = document.getElementById('dough3text');
+const NPS2 = document.getElementById('NPSFRONT2');
+const NPS2label = document.getElementById('dough4text');
 
 var headerarr = [];
 var delcomment = [];
@@ -125,8 +129,23 @@ function parse() {
             doughnutChart(doughnut1, deloverall, doughnut1label);
             doughnutChart(doughnut2, delcontent, doughnut2label);
 
-            
-            
+            function rotateSVG(target,value,text){
+                if (value > 0){
+                    target.style.transform = "rotate(" + (value + (value * 0.40)) + "deg)";
+                    target.style.webkitTransform = "rotate(" + (value + (value * 0.40)) + "deg)";
+                    target.style.moztransform = "rotate(" + (value + (value * 0.40)) + "deg)";
+                    text.textContent = "+" + value; 
+                } else if (value < 0){
+                    target.style.transform = "rotate(" + (value + (value * 0.40)) + "deg)";
+                    target.style.webkitTransform = "rotate(" + (value + (value * 0.40)) + "deg)";
+                    target.style.moztransform = "rotate(" + (value + (value * 0.40)) + "deg)";
+                    text.textContent = value; 
+                };
+                
+                
+            };
+            rotateSVG(NPS1,delmodNPS,dough3text);
+            rotateSVG(NPS2,delorgNPS,dough4text);
     }});
 };
 // Calculation and processing functions.
