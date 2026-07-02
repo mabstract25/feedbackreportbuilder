@@ -7,11 +7,11 @@ var facilexpholder = [];
 var delfacilexp = {
     phrOne: "Delivered the content at a comfortable pace",
     phrOneCount: 0,
-    phrTwo: " Explained things with clarity and structure",
+    phrTwo: "Explained things with clarity and structure",
     phrTwoCount: 0,
-    phrThree: " Motivated me to engage with the learning",
+    phrThree: "Motivated me to engage with the learning",
     phrThreeCount: 0,
-    phrFour: " Provided appropriate time to practise skills",
+    phrFour: "Provided appropriate time to practise skills",
     phrFourCount: 0,
     phrFive: "Shared relevant real-world experience",
     phrFiveCount: 0,
@@ -40,6 +40,7 @@ function parse() {
                     content: results.data[i][20],
                     modNPS: results.data[i][22],
                     orgNPS: results.data[i][23],
+                    // Creating Likert charts (Horizontal Bars)
                     facilexp: results.data[i][26],
                     
                 };
@@ -107,26 +108,46 @@ function NPS(arr) {
 
 };
 
+function calcPercent(val1,val2){
+    return parseFloat(((val1/val2.length) * 100).toFixed(0));
+    
+}
+
 function likertValues(arr, ref) {
     console.log(arr);
-    console.log(ref);    
     
     
 
     arr.forEach((element) => {
-        let sploot = element.split("|");
+        let sploot = element.split(" | ");
         sploot.forEach((element) => {
             // NOW YOU NEED TO REMOVE SPACES FROM ENDS OF LINE WITH A NEW SPLIT
             if(element === ref.phrOne){
                 ref.phrOneCount += 1;
-            };
+            }else if(element === ref.phrTwo){
+                ref.phrTwoCount += 1;
+            }else if(element === ref.phrThree){
+                ref.phrThreeCount += 1;
+            }else if(element === ref.phrFour){
+                ref.phrFourCount += 1;
+            }else if(element === ref.phrFive){
+            ref.phrFiveCount += 1;} else;
+                    
             
         })
       
     });
+    console.log(ref);    
     
-    console.log(ref)
-  
+    
+
+    ref.phrOneCount = calcPercent(ref.phrOneCount,arr);
+    ref.phrTwoCount = calcPercent(ref.phrTwoCount,arr);
+    ref.phrThreeCount = calcPercent(ref.phrThreeCount,arr);
+    ref.phrFourCount = calcPercent(ref.phrFourCount,arr);
+    ref.phrFiveCount = calcPercent(ref.phrFiveCount,arr);
+
+    console.log(ref);
     
 }
 
