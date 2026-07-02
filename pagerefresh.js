@@ -1,3 +1,4 @@
+var headerarr = [];
 var delcomment = [];
 var deloverall = [];
 var delcontent = [];
@@ -16,6 +17,19 @@ var delfacilexp = {
     phrFive: "Shared relevant real-world experience",
     phrFiveCount: 0,
 }
+var LC1holder = [];
+var LC1 = {
+    phrOne: "I didn't understand the concepts",
+    phrOneCount: 0,
+    phrTwo: "I understood some parts",
+    phrTwoCount: 0,
+    phrThree: "I understood most parts",
+    phrThreeCount: 0,
+    phrFour: "I understood everything clearly",
+    phrFourCount: 0,
+    phrFive: "I could explain these concepts to someone else",
+    phrFiveCount: 0,
+}
 
 function parse() {
     var file = '/example.csv';
@@ -29,7 +43,22 @@ function parse() {
         skipEmptyLines: true,
         complete: (results)=> {        
             console.log(results.data);
+            
+            // Build the headers
+            for (var i = 0; i < results.data.length; i++) {
+                
+                let headers = results.data[0][i];
+                if(headers != undefined){
+                    headerarr.push(headers);
+                }
+                
+                
+            }
+            
+            
 
+            
+            // Process the data, extract row by row into arrays.
             for(var i = 1; i < results.data.length; i++) {
                 
                 // Creating Pie & Comments Data
@@ -42,7 +71,7 @@ function parse() {
                     orgNPS: results.data[i][23],
                     // Creating Likert charts (Horizontal Bars)
                     facilexp: results.data[i][26],
-                    
+                    lc1: results.data[i][31],
                 };
                 
                 delcomment.push(testrow.comments);
@@ -51,8 +80,12 @@ function parse() {
                 delmodNPS.push(testrow.modNPS);
                 delorgNPS.push(testrow.orgNPS);
                 facilexpholder.push(testrow.facilexp);
-            
+                LC1holder.push(testrow.lc1);
+                
+
+                
             };
+            // Comment filtering.
             delcomment = delcomment.filter(function (el) {
                     return el != null;
                 });
@@ -62,17 +95,17 @@ function parse() {
             //     return el != null;
             // });
             
+            // Main calculation and processing functions.
             deloverall = average(deloverall);
             delcontent = average(delcontent);
             delmodNPS = NPS(delmodNPS);
             delorgNPS = NPS(delorgNPS);
-            console.log(facilexpholder);
             likertValues(facilexpholder, delfacilexp);
-
+            lclikertValues(LC1holder, LC1)
+            
     }});
 };
-
-
+// Calculation and processing functions.
 function sum(arr) {
     return arr.reduce(function (a, b) {
         return a + b;
@@ -115,13 +148,10 @@ function calcPercent(val1,val2){
 
 function likertValues(arr, ref) {
     console.log(arr);
-    
-    
 
     arr.forEach((element) => {
         let sploot = element.split(" | ");
         sploot.forEach((element) => {
-            // NOW YOU NEED TO REMOVE SPACES FROM ENDS OF LINE WITH A NEW SPLIT
             if(element === ref.phrOne){
                 ref.phrOneCount += 1;
             }else if(element === ref.phrTwo){
@@ -138,8 +168,6 @@ function likertValues(arr, ref) {
       
     });
     console.log(ref);    
-    
-    
 
     ref.phrOneCount = calcPercent(ref.phrOneCount,arr);
     ref.phrTwoCount = calcPercent(ref.phrTwoCount,arr);
@@ -150,6 +178,38 @@ function likertValues(arr, ref) {
     console.log(ref);
     
 }
+
+function lclikertValues(arr, ref) {
+    console.log("LC")
+    console.log(arr);
+
+    arr.forEach((element) => {
+        
+            if(element === ref.phrOne){
+                ref.phrOneCount += 1;
+            }else if(element === ref.phrTwo){
+                ref.phrTwoCount += 1;
+            }else if(element === ref.phrThree){
+                ref.phrThreeCount += 1;
+            }else if(element === ref.phrFour){
+                ref.phrFourCount += 1;
+            }else if(element === ref.phrFive){
+            ref.phrFiveCount += 1;} else;
+                    
+      
+    });
+    console.log(ref);    
+
+    ref.phrOneCount = calcPercent(ref.phrOneCount,arr);
+    ref.phrTwoCount = calcPercent(ref.phrTwoCount,arr);
+    ref.phrThreeCount = calcPercent(ref.phrThreeCount,arr);
+    ref.phrFourCount = calcPercent(ref.phrFourCount,arr);
+    ref.phrFiveCount = calcPercent(ref.phrFiveCount,arr);
+
+    console.log(ref);
+    
+}
+
 
 // Promoters - 9 & 10
 // Detracters - 1 - 6

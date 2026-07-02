@@ -97,9 +97,16 @@
 }
 
 .piechart1,.piechart2,.piechart3,.piechart4 {
-    width: 50px;
-    height: 50px;
+    width: 150px;
+    height: 150px;
     background-color: blue;
+}
+
+.doughchart {
+    margin-left:auto;
+    margin-right:auto;
+    height: 150px;
+    width: 150px;
 }
 
 
