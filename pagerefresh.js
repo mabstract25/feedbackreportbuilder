@@ -2,7 +2,7 @@ const doughnut1 = document.getElementById('doughnut1');
 const doughnut1label = document.getElementById('dough1text');
 const doughnut2 = document.getElementById('doughnut2');
 const doughnut2label = document.getElementById('dough2text');
-console.log(doughnut1label)
+
 var headerarr = [];
 var delcomment = [];
 var deloverall = [];
@@ -103,7 +103,7 @@ function parse() {
             delorgNPS = NPS(delorgNPS);
             likertValues(facilexpholder, delfacilexp);
             lclikertValues(LC1holder, LC1)
-
+            console.log(delmodNPS)
             // Doughnut chart generation
 
             function doughnutChart(canvasID, dataID, textID){
@@ -159,7 +159,6 @@ function NPS(arr) {
             detractors += 1;
         } else;
     }
-    console.log(promoters, passives, detractors);
 
     return parseFloat((((promoters - detractors) / arr.length) * 100).toFixed(0));
 
@@ -171,8 +170,7 @@ function calcPercent(val1,val2){
 }
 
 function likertValues(arr, ref) {
-    console.log(arr);
-
+    
     arr.forEach((element) => {
         let sploot = element.split(" | ");
         sploot.forEach((element) => {
@@ -191,21 +189,17 @@ function likertValues(arr, ref) {
         })
       
     });
-    console.log(ref);    
+     
 
     ref.phrOneCount = calcPercent(ref.phrOneCount,arr);
     ref.phrTwoCount = calcPercent(ref.phrTwoCount,arr);
     ref.phrThreeCount = calcPercent(ref.phrThreeCount,arr);
     ref.phrFourCount = calcPercent(ref.phrFourCount,arr);
     ref.phrFiveCount = calcPercent(ref.phrFiveCount,arr);
-
-    console.log(ref);
     
 }
 
 function lclikertValues(arr, ref) {
-    console.log("LC")
-    console.log(arr);
 
     arr.forEach((element) => {
         
@@ -222,15 +216,12 @@ function lclikertValues(arr, ref) {
                     
       
     });
-    console.log(ref);    
 
     ref.phrOneCount = calcPercent(ref.phrOneCount,arr);
     ref.phrTwoCount = calcPercent(ref.phrTwoCount,arr);
     ref.phrThreeCount = calcPercent(ref.phrThreeCount,arr);
     ref.phrFourCount = calcPercent(ref.phrFourCount,arr);
     ref.phrFiveCount = calcPercent(ref.phrFiveCount,arr);
-
-    console.log(ref);
     
 }
 
