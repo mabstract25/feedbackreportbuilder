@@ -5,6 +5,7 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
 .spacer {
     height: 20px;
 }
@@ -101,6 +102,10 @@
     height: 150px;
 }
 
+#doughnut1, #doughnut2 {
+    margin-top: 10px;
+}
+
 .piecontainer {
     position: relative;
     display: flex;
@@ -110,8 +115,8 @@
 
 .doughtext {
     position: absolute;
-    padding-top: 0.1em;
-    font-size: 50px;
+    padding-top: 0.3em;
+    font-size: 40pt;
     z-index: 1;
 }
 
@@ -145,6 +150,10 @@
     flex-direction: column;
     gap: 2rem;
     border: 1px solid #bcdff3;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    break-after: always;
+    page-break-after:always;
 }
 
 .faciltitle {
@@ -168,10 +177,15 @@
 
 @page {
     margin: 0;
+    size: 210mm 297mm;
     
 }
 
 @media print {
+
+    #PDFGO {
+        display: none;
+    }
 
     .middle {
         /* background-color: red; */

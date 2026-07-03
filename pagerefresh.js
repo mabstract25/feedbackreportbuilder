@@ -1,3 +1,19 @@
+// HTML2PDF Test - possibly useful, unsure.
+
+// const print = document.getElementById('PDFcontainer');
+// var printopt = {
+//     margin: 0,
+//     filename: 'testpdf',
+//     image: {type: 'jpeg', quality: 0.98},
+//     html2canvas: {dpi: 96, letterRendering: true },
+//     jsPDF: {unit: 'cm', format: 'a4', compress: 'false', orientation: 'portrait'},
+
+
+// } 
+// function printpdf() {
+//     html2pdf().set(printopt).from(print).save();
+// }
+
 const doughnut1 = document.getElementById('doughnut1');
 const doughnut1label = document.getElementById('dough1text');
 const doughnut2 = document.getElementById('doughnut2');
@@ -6,6 +22,8 @@ const NPS1 = document.getElementById('NPSFRONT1');
 const NPS1label = document.getElementById('dough3text');
 const NPS2 = document.getElementById('NPSFRONT2');
 const NPS2label = document.getElementById('dough4text');
+
+
 
 var headerarr = [];
 var delcomment = [];
@@ -243,6 +261,7 @@ function lclikertValues(arr, ref) {
     ref.phrFiveCount = calcPercent(ref.phrFiveCount,arr);
     
 }
+
 
 
 // Promoters - 9 & 10
