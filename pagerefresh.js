@@ -22,7 +22,8 @@ const NPS1 = document.getElementById('NPSFRONT1');
 const NPS1label = document.getElementById('dough3text');
 const NPS2 = document.getElementById('NPSFRONT2');
 const NPS2label = document.getElementById('dough4text');
-
+const chartblue = '#57aee2';
+const chartlblue = '#ddeff9'
 const facilexp1 = document.getElementById('facilexp1');
 
 
@@ -133,6 +134,7 @@ function parse() {
             Chart.defaults.font.family = 'Aptos';
             Chart.defaults.font.style = 'normal';
             Chart.defaults.color = '#000000';
+            
 
             // Doughnut chart generation
 
@@ -146,7 +148,7 @@ function parse() {
                     }]
                 },
                 options: {
-                    cutout: '80%'
+                    cutout: '80%',
                 }
                 });
                 textID.textContent = dataID;
@@ -176,16 +178,16 @@ function parse() {
 
             // Facil Exp bar chart generaton
 i
-            function barChart(canvasID,ref){
+            function barChart(canvasID,ref,colour1,colour2){
                 tdata = {
                     labels: [ref.phrOne,ref.phrTwo,ref.phrThree,ref.phrFour,ref.phrFive],
                     datasets: [{
                         data: [ref.phrOneCount,ref.phrTwoCount,ref.phrThreeCount,ref.phrFourCount,ref.phrFiveCount],
-                        backgroundColor: ['#57aee2'],
+                        backgroundColor: colour1,
                         borderColor: '#ffffff',
                     },{
                         data: [(100 - ref.phrOneCount),(100 - ref.phrTwoCount),(100 - ref.phrThreeCount),(100 - ref.phrFourCount),(100 - ref.phrFiveCount)],
-                        backgroundColor: ['#FDC743'],
+                        backgroundColor: colour2,
                         borderColor: '#ffffff',
                     },
                     ],
@@ -199,6 +201,7 @@ i
                     },
                     options: {
                         indexAxis: 'y',
+                        devicePixelRatio: 1.5,
                         maintainAspectRatio: false,
                         responsive: true,
                         elements: {
@@ -206,12 +209,20 @@ i
                                 borderWidth: 2,
                             }
                         },
-                        formatter: function (value) {
-                            return value + '%';
-                        },
+                        
                         plugins: {
                             datalabels: {
                                 color: '#000000',
+                                formatter: function (value) {
+                                    if (value >= 5){
+                                        return value + '%';
+                                    } else{
+                                        return '';
+                                    }
+                                    
+                                },
+                                
+                                
                             },
                             legend: {
                                 display: false,
@@ -229,8 +240,8 @@ i
                 })
             }
 
-            barChart(facilexp1,delfacilexp);
-
+            barChart(facilexp1,delfacilexp,chartblue,chartlblue);
+            
     }});
 };
 // Calculation and processing functions.
