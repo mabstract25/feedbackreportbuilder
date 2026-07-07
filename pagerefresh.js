@@ -176,7 +176,12 @@ function parse() {
                         data: [ref.phrOneCount,ref.phrTwoCount,ref.phrThreeCount,ref.phrFourCount,ref.phrFiveCount],
                         backgroundColor: ['#57aee2'],
                         borderColor: '#ffffff',
-                    }],
+                    },{
+                        data: [(100 - ref.phrOneCount),(100 - ref.phrTwoCount),(100 - ref.phrThreeCount),(100 - ref.phrFourCount),(100 - ref.phrFiveCount)],
+                        backgroundColor: ['#FDC743'],
+                        borderColor: '#ffffff',
+                    },
+                    ],
                 };
                 new Chart(canvasID, {
                     
@@ -190,16 +195,23 @@ function parse() {
                         maintainAspectRatio: false,
                         responsive: true,
                         elements: {
-                        bar: {
-                            borderWidth: 2,
-                        }
+                            bar: {
+                                borderWidth: 2,
+                            }
                         },
                         plugins: {
-                        legend: {
-                            display: false,
-                        }
+                            legend: {
+                                display: false,
+                            }
                         },
-        
+                        scales: {
+                            x: {
+                            stacked: true
+                            },
+                            y: {
+                            stacked: true
+                            }
+                        },
                      },
                 })
             }
