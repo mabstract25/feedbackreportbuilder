@@ -23,6 +23,7 @@ const NPS1label = document.getElementById('dough3text');
 const NPS2 = document.getElementById('NPSFRONT2');
 const NPS2label = document.getElementById('dough4text');
 
+const facilexp1 = document.getElementById('facilexp1');
 
 
 var headerarr = [];
@@ -164,6 +165,33 @@ function parse() {
             };
             rotateSVG(NPS1,delmodNPS,dough3text);
             rotateSVG(NPS2,delorgNPS,dough4text);
+
+
+            // Facil Exp bar chart generation
+
+            function barChart(canvasID,data){
+                new Chart(canvasID, {
+                    labels: ['Hello','Hi'],
+                    type: 'bar',
+                    data: {
+                        datasets: [{
+                            axis: 'y',
+                            label: ['label'],
+                            data: [data.phrOneCount, data.phrTwoCount],
+                            backgroundColor: ['#57aee2'],
+                            borderColor: ['#57aee2'],
+                            borderWidth: 1,
+                        }]
+                    },
+                    
+                    options: {
+                        indexAxis: 'y',
+                    }
+                })
+            }
+
+            barChart(facilexp1,delfacilexp);
+
     }});
 };
 // Calculation and processing functions.

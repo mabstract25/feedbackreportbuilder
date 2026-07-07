@@ -161,6 +161,18 @@
     padding: 1rem;
 }
 
+.overallbarcontainer {
+    width: 800px;
+    height: 200px;
+}
+
+.barchart {
+    /* width: 800px;
+    height: 200px; */
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .footer {
     position: fixed;
     bottom: 0;
