@@ -127,6 +127,13 @@ function parse() {
             likertValues(facilexpholder, delfacilexp);
             lclikertValues(LC1holder, LC1)
             console.log(delmodNPS)
+
+            // Chart Defaults
+            Chart.defaults.font.size = 16;
+            Chart.defaults.font.family = 'Aptos';
+            Chart.defaults.font.style = 'normal';
+            Chart.defaults.color = '#000000';
+
             // Doughnut chart generation
 
             function doughnutChart(canvasID, dataID, textID){
@@ -167,8 +174,8 @@ function parse() {
             rotateSVG(NPS2,delorgNPS,dough4text);
 
 
-            // Facil Exp bar chart generation
-
+            // Facil Exp bar chart generaton
+i
             function barChart(canvasID,ref){
                 tdata = {
                     labels: [ref.phrOne,ref.phrTwo,ref.phrThree,ref.phrFour,ref.phrFive],
@@ -184,7 +191,7 @@ function parse() {
                     ],
                 };
                 new Chart(canvasID, {
-                    
+                    plugins: [ChartDataLabels],
                     type: 'bar',
                     data: tdata,
                     legend: {
@@ -199,7 +206,13 @@ function parse() {
                                 borderWidth: 2,
                             }
                         },
+                        formatter: function (value) {
+                            return value + '%';
+                        },
                         plugins: {
+                            datalabels: {
+                                color: '#000000',
+                            },
                             legend: {
                                 display: false,
                             }
