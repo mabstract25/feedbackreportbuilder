@@ -145,37 +145,33 @@
 
 .facilexperiencecontainer {
     text-align: center;
-    height: 300px;
+    height: 350px;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
     border: 1px solid #bcdff3;
     break-inside: avoid;
     page-break-inside: avoid;
     break-after: always;
     page-break-after:always;
+    align-items: center;
 }
 
 .faciltitle {
     background-color: #bcdff3;
     padding: 1rem;
+    width: 100%;
 }
 
-/* .overallbarcontainer {
-    width: 800px;
-    height: 300px;
-} */
-
-#facilexp1 {
-    width: 400px;
-    height: 200px;
-}
-
-.barchart {
+.overallbarcontainer {
+    position: relative;
+    width: 700px;
+    height: 250px;
     
-    margin-left: auto;
-    margin-right: auto;
+
 }
+
+
 
 .footer {
     position: fixed;

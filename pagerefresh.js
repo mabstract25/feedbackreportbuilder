@@ -169,27 +169,38 @@ function parse() {
 
             // Facil Exp bar chart generation
 
-            function barChart(canvasID,data){
+            function barChart(canvasID,ref){
+                tdata = {
+                    labels: [ref.phrOne,ref.phrTwo,ref.phrThree,ref.phrFour,ref.phrFive],
+                    datasets: [{
+                        data: [ref.phrOneCount,ref.phrTwoCount,ref.phrThreeCount,ref.phrFourCount,ref.phrFiveCount],
+                        backgroundColor: ['#57aee2'],
+                        borderColor: '#ffffff',
+                    }],
+                };
                 new Chart(canvasID, {
-                    labels: data.phrOne,
+                    
                     type: 'bar',
-                    data: {
-                        datasets: [{
-                            axis: 'y',
-                            label: [data.phrOne],
-                            data: [data.phrOneCount],
-                            backgroundColor: ['#57aee2'],
-                            borderColor: ['#57aee2'],
-                            borderWidth: 1,
-                        }]
-                    },
+                    data: tdata,
                     legend: {
                         display: false
                     },
                     options: {
                         indexAxis: 'y',
-                        
-                    }
+                        maintainAspectRatio: false,
+                        responsive: true,
+                        elements: {
+                        bar: {
+                            borderWidth: 2,
+                        }
+                        },
+                        plugins: {
+                        legend: {
+                            display: false,
+                        }
+                        },
+        
+                     },
                 })
             }
 
