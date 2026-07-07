@@ -171,21 +171,24 @@ function parse() {
 
             function barChart(canvasID,data){
                 new Chart(canvasID, {
-                    labels: ['Hello','Hi'],
+                    labels: data.phrOne,
                     type: 'bar',
                     data: {
                         datasets: [{
                             axis: 'y',
-                            label: ['label'],
-                            data: [data.phrOneCount, data.phrTwoCount],
+                            label: [data.phrOne],
+                            data: [data.phrOneCount],
                             backgroundColor: ['#57aee2'],
                             borderColor: ['#57aee2'],
                             borderWidth: 1,
                         }]
                     },
-                    
+                    legend: {
+                        display: false
+                    },
                     options: {
                         indexAxis: 'y',
+                        
                     }
                 })
             }
