@@ -29,6 +29,7 @@ const chartlyellow = '#fff4d9';
 const facilexp1 = document.getElementById('facilexp1');
 const lcchart1 = document.getElementById('lcchart1');
 const lcchart2 = document.getElementById('lcchart2');
+const lcchart3 = document.getElementById('lcchart3');
 
 // Working Arrays
 var headerarr = [];
@@ -76,6 +77,19 @@ var LC2 = {
     phrFive: "It will significantly change how I work",
     phrFiveCount: 0,
 }
+var LC3holder = [];
+var LC3 = {
+    phrOne: "Not motivated at all",
+    phrOneCount: 0,
+    phrTwo: "Slightly motivated",
+    phrTwoCount: 0,
+    phrThree: "Moderately motivated",
+    phrThreeCount: 0,
+    phrFour: "Very motivated",
+    phrFourCount: 0,
+    phrFive: "Extremely motivated",
+    phrFiveCount: 0,
+}
 
 
 function parse() {
@@ -120,7 +134,9 @@ function parse() {
                     facilexp: results.data[i][26],
                     lc1: results.data[i][31],
                     lc2: results.data[i][25],
+                    lc3: results.data[i][28],
                 };
+                
                 
                 delcomment.push(testrow.comments);
                 deloverall.push(testrow.overall);
@@ -130,9 +146,10 @@ function parse() {
                 facilexpholder.push(testrow.facilexp);
                 LC1holder.push(testrow.lc1);
                 LC2holder.push(testrow.lc2);
-
+                LC3holder.push(testrow.lc3)
                 
             };
+           
             // Comment filtering.
             delcomment = delcomment.filter(function (el) {
                     return el != null;
@@ -146,7 +163,8 @@ function parse() {
             delorgNPS = NPS(delorgNPS);
             likertValues(facilexpholder, delfacilexp);
             lclikertValues(LC1holder, LC1);
-            lclikertValues(LC2holder, LC2)
+            lclikertValues(LC2holder, LC2);
+            lclikertValues(LC3holder, LC3)
 
             // Chart Defaults
             Chart.defaults.font.size = 14;
@@ -263,8 +281,8 @@ i
 
             barChart(facilexp1,delfacilexp,chartblue,chartlblue);
             barChart(lcchart1,LC1,chartyellow,chartlyellow);
-            barChart(lcchart2,LC2,chartyellow,chartlyellow)
-            
+            barChart(lcchart2,LC2,chartyellow,chartlyellow);
+            barChart(lcchart3,LC3,chartyellow,chartlyellow);
     }});
 };
 // Calculation and processing functions.
