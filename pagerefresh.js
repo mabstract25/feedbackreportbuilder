@@ -133,7 +133,7 @@ var LC6 = {
 
 
 function parse() {
-    var file = '/example.csv';
+    var file = '/rathbonestest.csv';
 
     Papa.parse(file, {
         header: false,
