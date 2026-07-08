@@ -30,6 +30,9 @@ const facilexp1 = document.getElementById('facilexp1');
 const lcchart1 = document.getElementById('lcchart1');
 const lcchart2 = document.getElementById('lcchart2');
 const lcchart3 = document.getElementById('lcchart3');
+const lcchart4 = document.getElementById('lcchart4');
+const lcchart5 = document.getElementById('lcchart5');
+const lcchart6 = document.getElementById('lcchart6');
 
 // Working Arrays
 var headerarr = [];
@@ -90,6 +93,21 @@ var LC3 = {
     phrFive: "Extremely motivated",
     phrFiveCount: 0,
 }
+var LC4holder = [];
+var LC4 = {
+    phrOne: "I am unable to apply this in my role",
+    phrOneCount: 0,
+    phrTwo: "I need more support and/or experience",
+    phrTwoCount: 0,
+    phrThree: "I can apply this successfully now",
+    phrThreeCount: 0,
+    phrFour: "I can apply this at an advanced level",
+    phrFourCount: 0,
+}
+
+var LC5holder = [];
+
+var LC6holder = [];
 
 
 function parse() {
@@ -135,6 +153,7 @@ function parse() {
                     lc1: results.data[i][31],
                     lc2: results.data[i][25],
                     lc3: results.data[i][28],
+                    lc4: results.data[i][27],
                 };
                 
                 
@@ -146,8 +165,8 @@ function parse() {
                 facilexpholder.push(testrow.facilexp);
                 LC1holder.push(testrow.lc1);
                 LC2holder.push(testrow.lc2);
-                LC3holder.push(testrow.lc3)
-                
+                LC3holder.push(testrow.lc3);
+                LC4holder.push(testrow.lc4);
             };
            
             // Comment filtering.
@@ -164,7 +183,8 @@ function parse() {
             likertValues(facilexpholder, delfacilexp);
             lclikertValues(LC1holder, LC1);
             lclikertValues(LC2holder, LC2);
-            lclikertValues(LC3holder, LC3)
+            lclikertValues(LC3holder, LC3);
+            lclikertValues(LC4holder, LC4);
 
             // Chart Defaults
             Chart.defaults.font.size = 14;
@@ -215,6 +235,70 @@ function parse() {
 
             // Facil Exp bar chart generaton
 i
+            function fourBarChart(canvasID,ref,colour1,colour2){
+                tdata = {
+                    labels: [ref.phrOne,ref.phrTwo,ref.phrThree,ref.phrFour],
+                    datasets: [{
+                        data: [ref.phrOneCount,ref.phrTwoCount,ref.phrThreeCount,ref.phrFourCount],
+                        backgroundColor: colour1,
+                        borderColor: '#ffffff',
+                    },{
+                        data: [(100 - ref.phrOneCount),(100 - ref.phrTwoCount),(100 - ref.phrThreeCount),(100 - ref.phrFourCount),(100 - ref.phrFiveCount)],
+                        backgroundColor: colour2,
+                        borderColor: '#ffffff',
+                    },
+                    ],
+                };
+                new Chart(canvasID, {
+                    plugins: [ChartDataLabels],
+                    type: 'bar',
+                    data: tdata,
+                    legend: {
+                        display: false
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        devicePixelRatio: 1.5,
+                        maintainAspectRatio: false,
+                        responsive: true,
+                        elements: {
+                            bar: {
+                                borderWidth: 2,
+                            }
+                        },
+                        
+                        plugins: {
+                            datalabels: {
+                                color: '#000000',
+                                formatter: function (value) {
+                                    if (value >= 5){
+                                        return value + '%';
+                                    } else{
+                                        return '';
+                                    }
+                                    
+                                },
+                                
+                                
+                            },
+                            legend: {
+                                display: false,
+                            }
+                        },
+                        scales: {
+                            x: {
+                            stacked: true,
+                            ticks:{display: false}
+                            },
+                            y: {
+                            
+                            stacked: true
+                            }
+                        },
+                     },
+                })
+            };
+
             function barChart(canvasID,ref,colour1,colour2){
                 tdata = {
                     labels: [ref.phrOne,ref.phrTwo,ref.phrThree,ref.phrFour,ref.phrFive],
@@ -277,12 +361,13 @@ i
                         },
                      },
                 })
-            }
+            };
 
             barChart(facilexp1,delfacilexp,chartblue,chartlblue);
             barChart(lcchart1,LC1,chartyellow,chartlyellow);
             barChart(lcchart2,LC2,chartyellow,chartlyellow);
             barChart(lcchart3,LC3,chartyellow,chartlyellow);
+            fourBarChart(lcchart4,LC4,chartyellow,chartlyellow);
     }});
 };
 // Calculation and processing functions.

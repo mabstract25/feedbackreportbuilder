@@ -153,7 +153,7 @@
 
 .lccontainer {
     border: 1px solid #fee9b4;
-    height: 250px;
+    height: 300px;
     gap: 0.1rem;
 }
 
@@ -193,14 +193,18 @@
 .lcbarcontainer {
     position: relative;
     width: 750px;
-    height: 150px;
+    height: 190px;
 }
 
 .lccontainer.lccell {
-    height: 190px;
+    height: 238px;
     border-top: 0;
 }
 
+.pbreak {
+    break-after: always;
+    page-break-after: always;
+}
 
 
 .footer {
