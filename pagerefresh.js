@@ -28,8 +28,9 @@ const chartyellow = '#FDC743';
 const chartlyellow = '#fff4d9';
 const facilexp1 = document.getElementById('facilexp1');
 const lcchart1 = document.getElementById('lcchart1');
+const lcchart2 = document.getElementById('lcchart2');
 
-
+// Working Arrays
 var headerarr = [];
 var delcomment = [];
 var deloverall = [];
@@ -48,7 +49,7 @@ var delfacilexp = {
     phrFourCount: 0,
     phrFive: "Shared relevant real-world experience",
     phrFiveCount: 0,
-}
+};
 var LC1holder = [];
 var LC1 = {
     phrOne: "I didn't understand the concepts",
@@ -61,7 +62,21 @@ var LC1 = {
     phrFourCount: 0,
     phrFive: "I could explain these concepts to someone else",
     phrFiveCount: 0,
+};
+var LC2holder = [];
+var LC2 = {
+    phrOne: "It is unlikely to change how I work",
+    phrOneCount: 0,
+    phrTwo: "It reinforced what I already knew",
+    phrTwoCount: 0,
+    phrThree: "It increased my awareness and understanding",
+    phrThreeCount: 0,
+    phrFour: "It will influence how I work",
+    phrFourCount: 0,
+    phrFive: "It will significantly change how I work",
+    phrFiveCount: 0,
 }
+
 
 function parse() {
     var file = '/example.csv';
@@ -104,6 +119,7 @@ function parse() {
                     // Creating Likert charts (Horizontal Bars)
                     facilexp: results.data[i][26],
                     lc1: results.data[i][31],
+                    lc2: results.data[i][25],
                 };
                 
                 delcomment.push(testrow.comments);
@@ -113,7 +129,7 @@ function parse() {
                 delorgNPS.push(testrow.orgNPS);
                 facilexpholder.push(testrow.facilexp);
                 LC1holder.push(testrow.lc1);
-                
+                LC2holder.push(testrow.lc2);
 
                 
             };
@@ -130,7 +146,7 @@ function parse() {
             delorgNPS = NPS(delorgNPS);
             likertValues(facilexpholder, delfacilexp);
             lclikertValues(LC1holder, LC1);
-            
+            lclikertValues(LC2holder, LC2)
 
             // Chart Defaults
             Chart.defaults.font.size = 14;
@@ -247,6 +263,7 @@ i
 
             barChart(facilexp1,delfacilexp,chartblue,chartlblue);
             barChart(lcchart1,LC1,chartyellow,chartlyellow);
+            barChart(lcchart2,LC2,chartyellow,chartlyellow)
             
     }});
 };
@@ -337,7 +354,7 @@ function lclikertValues(arr, ref) {
                     
       
     });
-
+    
     ref.phrOneCount = calcPercent(ref.phrOneCount,arr);
     ref.phrTwoCount = calcPercent(ref.phrTwoCount,arr);
     ref.phrThreeCount = calcPercent(ref.phrThreeCount,arr);
