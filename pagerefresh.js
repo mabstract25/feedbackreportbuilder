@@ -14,6 +14,10 @@
 //     html2pdf().set(printopt).from(print).save();
 // }
 
+const sessionname = document.getElementById('sessionname');
+const sessiondate = document.getElementById('sessiondate');
+const sessionrespondents = document.getElementById('sessionrespondents');
+
 const doughnut1 = document.getElementById('doughnut1');
 const doughnut1label = document.getElementById('dough1text');
 const doughnut2 = document.getElementById('doughnut2');
@@ -35,7 +39,7 @@ const lcchart5 = document.getElementById('lcchart5');
 const lcchart6 = document.getElementById('lcchart6');
 
 // Working Arrays
-var headerarr = [];
+
 var delcomment = [];
 var deloverall = [];
 var delcontent = [];
@@ -133,7 +137,7 @@ var LC6 = {
 
 
 function parse() {
-    var file = '/rathbonestest.csv';
+    var file = '/example.csv';
 
     Papa.parse(file, {
         header: false,
@@ -145,17 +149,12 @@ function parse() {
         complete: (results)=> {        
             console.log(results.data);
             
-            // Build the headers
-            for (var i = 0; i < results.data.length; i++) {
-                
-                let headers = results.data[0][i];
-                if(headers != undefined){
-                    headerarr.push(headers);
-                }
-                
-                
+            function textsplit(string) {
+                return string.replace(":", ":<br/>");
             }
-            
+            sessionname.innerHTML = textsplit(results.data[1][2]);
+            sessiondate.textContent = results.data[1][5];
+            sessionrespondents.textContent = results.data.length - 1;
             
 
             
