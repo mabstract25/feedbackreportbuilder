@@ -103,11 +103,33 @@ var LC4 = {
     phrThreeCount: 0,
     phrFour: "I can apply this at an advanced level",
     phrFourCount: 0,
-}
-
+};
 var LC5holder = [];
-
+var LC5 = {
+    phrOne: "Never",
+    phrOneCount: 0,
+    phrTwo: "Not sure",
+    phrTwoCount: 0,
+    phrThree: "This month",
+    phrThreeCount: 0,
+    phrFour: "This week",
+    phrFourCount: 0,
+};
 var LC6holder = [];
+var LC6 = {
+    phrOne: "None at this time",
+    phrOneCount: 0,
+    phrTwo: "Something else",
+    phrTwoCount: 0,
+    phrThree: "More practice opportunities",
+    phrThreeCount: 0,
+    phrFour: "Follow-up sessions",
+    phrFourCount: 0,
+    phrFive: "Coaching or mentoring",
+    phrFiveCount: 0,
+    phrSix: "Additional resources",
+    phrSixCount: 0,
+};
 
 
 function parse() {
@@ -154,6 +176,9 @@ function parse() {
                     lc2: results.data[i][25],
                     lc3: results.data[i][28],
                     lc4: results.data[i][27],
+                    lc5: results.data[i][24],
+                    lc6: results.data[i][29],
+
                 };
                 
                 
@@ -167,6 +192,8 @@ function parse() {
                 LC2holder.push(testrow.lc2);
                 LC3holder.push(testrow.lc3);
                 LC4holder.push(testrow.lc4);
+                LC5holder.push(testrow.lc5);
+                LC6holder.push(testrow.lc6);
             };
            
             // Comment filtering.
@@ -185,6 +212,8 @@ function parse() {
             lclikertValues(LC2holder, LC2);
             lclikertValues(LC3holder, LC3);
             lclikertValues(LC4holder, LC4);
+            lclikertValues(LC5holder, LC5);
+            likertValues(LC6holder, LC6);
 
             // Chart Defaults
             Chart.defaults.font.size = 14;
@@ -233,8 +262,72 @@ function parse() {
             rotateSVG(NPS2,delorgNPS,dough4text);
 
 
-            // Facil Exp bar chart generaton
-i
+            // Bar chart generaton
+            function sixBarChart(canvasID,ref,colour1,colour2){
+                tdata = {
+                    labels: [ref.phrOne,ref.phrTwo,ref.phrThree,ref.phrFour,ref.phrFive,ref.phrSix],
+                    datasets: [{
+                        data: [ref.phrOneCount,ref.phrTwoCount,ref.phrThreeCount,ref.phrFourCount,ref.phrFiveCount,ref.phrSixCount],
+                        backgroundColor: colour1,
+                        borderColor: '#ffffff',
+                    },{
+                        data: [(100 - ref.phrOneCount),(100 - ref.phrTwoCount),(100 - ref.phrThreeCount),(100 - ref.phrFourCount),(100 - ref.phrFiveCount),(100 - ref.phrSixCount)],
+                        backgroundColor: colour2,
+                        borderColor: '#ffffff',
+                    },
+                    ],
+                };
+                new Chart(canvasID, {
+                    plugins: [ChartDataLabels],
+                    type: 'bar',
+                    data: tdata,
+                    legend: {
+                        display: false
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        devicePixelRatio: 1.5,
+                        maintainAspectRatio: false,
+                        responsive: true,
+                        elements: {
+                            bar: {
+                                borderWidth: 2,
+                            }
+                        },
+                        
+                        plugins: {
+                            datalabels: {
+                                color: '#000000',
+                                formatter: function (value) {
+                                    if (value >= 5){
+                                        return value + '%';
+                                    } else{
+                                        return '';
+                                    }
+                                    
+                                },
+                                
+                                
+                            },
+                            legend: {
+                                display: false,
+                            }
+                        },
+                        scales: {
+                            x: {
+                            stacked: true,
+                            ticks:{display: false}
+                            },
+                            y: {
+                            
+                            stacked: true
+                            }
+                        },
+                     },
+                })
+            };
+
+
             function fourBarChart(canvasID,ref,colour1,colour2){
                 tdata = {
                     labels: [ref.phrOne,ref.phrTwo,ref.phrThree,ref.phrFour],
@@ -243,7 +336,7 @@ i
                         backgroundColor: colour1,
                         borderColor: '#ffffff',
                     },{
-                        data: [(100 - ref.phrOneCount),(100 - ref.phrTwoCount),(100 - ref.phrThreeCount),(100 - ref.phrFourCount),(100 - ref.phrFiveCount)],
+                        data: [(100 - ref.phrOneCount),(100 - ref.phrTwoCount),(100 - ref.phrThreeCount),(100 - ref.phrFourCount)],
                         backgroundColor: colour2,
                         borderColor: '#ffffff',
                     },
@@ -368,6 +461,8 @@ i
             barChart(lcchart2,LC2,chartyellow,chartlyellow);
             barChart(lcchart3,LC3,chartyellow,chartlyellow);
             fourBarChart(lcchart4,LC4,chartyellow,chartlyellow);
+            fourBarChart(lcchart5,LC5,chartyellow,chartlyellow);
+            sixBarChart(lcchart6,LC6,chartyellow,chartlyellow);
     }});
 };
 // Calculation and processing functions.
@@ -424,7 +519,10 @@ function likertValues(arr, ref) {
             }else if(element === ref.phrFour){
                 ref.phrFourCount += 1;
             }else if(element === ref.phrFive){
-            ref.phrFiveCount += 1;} else;
+            ref.phrFiveCount += 1;
+            }else if(element === ref.phrSix){
+            ref.phrSixCount += 1;
+            } else;
                     
             
         })
