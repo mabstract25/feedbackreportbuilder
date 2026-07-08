@@ -23,8 +23,11 @@ const NPS1label = document.getElementById('dough3text');
 const NPS2 = document.getElementById('NPSFRONT2');
 const NPS2label = document.getElementById('dough4text');
 const chartblue = '#57aee2';
-const chartlblue = '#ddeff9'
+const chartlblue = '#ddeff9';
+const chartyellow = '#FDC743';
+const chartlyellow = '#fff4d9';
 const facilexp1 = document.getElementById('facilexp1');
+const lcchart1 = document.getElementById('lcchart1');
 
 
 var headerarr = [];
@@ -126,11 +129,11 @@ function parse() {
             delmodNPS = NPS(delmodNPS);
             delorgNPS = NPS(delorgNPS);
             likertValues(facilexpholder, delfacilexp);
-            lclikertValues(LC1holder, LC1)
-            console.log(delmodNPS)
+            lclikertValues(LC1holder, LC1);
+            
 
             // Chart Defaults
-            Chart.defaults.font.size = 16;
+            Chart.defaults.font.size = 14;
             Chart.defaults.font.family = 'Aptos';
             Chart.defaults.font.style = 'normal';
             Chart.defaults.color = '#000000';
@@ -230,9 +233,11 @@ i
                         },
                         scales: {
                             x: {
-                            stacked: true
+                            stacked: true,
+                            ticks:{display: false}
                             },
                             y: {
+                            
                             stacked: true
                             }
                         },
@@ -241,6 +246,7 @@ i
             }
 
             barChart(facilexp1,delfacilexp,chartblue,chartlblue);
+            barChart(lcchart1,LC1,chartyellow,chartlyellow);
             
     }});
 };

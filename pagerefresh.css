@@ -144,16 +144,26 @@
 /* Facilitator Experience*/
 
 .facilexperiencecontainer {
-    text-align: center;
-    height: 350px;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    border: 1px solid #bcdff3;
-    break-inside: avoid;
-    page-break-inside: avoid;
     break-after: always;
     page-break-after:always;
+    border: 1px solid #bcdff3;
+    height: 350px;
+    gap: 1rem;
+}
+
+.lccontainer {
+    border: 1px solid #fee9b4;
+    height: 250px;
+    gap: 0.1rem;
+}
+
+.facilexperiencecontainer,
+.lccontainer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    break-inside: avoid;
+    page-break-inside: avoid;
     align-items: center;
 }
 
@@ -163,13 +173,29 @@
     width: 100%;
 }
 
-.overallbarcontainer {
+.lctitle {
+    background-color: #fee9b4;
+    padding: 1rem;
+    width: 100%;
+}
+
+.lcheadline {
+    padding: 0.2rem;
+    font-size: 14pt;
+}
+
+.overallbarcontainer{
     position: relative;
     width: 750px;
     height: 250px;
-    
-
 }
+
+.lcbarcontainer {
+    position: relative;
+    width: 750px;
+    height: 150px;
+}
+
 
 
 
