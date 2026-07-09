@@ -251,20 +251,28 @@
 
 @page {
     margin: 0;
-    
+    margin-bottom: 50px;
     size: 210mm 297mm;
-    break-inside: avoid;
-    page-break-inside: avoid;
+   
 }
 
 @media print {
+
+    .pbreak2 {
+        break-inside: avoid;
+    }
 
     #PDFGO {
         display: none;
     }
 
+
+
     .middle {
         /* background-color: red; */
         padding-top: 50px;
+    
     }
+
+
 }

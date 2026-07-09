@@ -508,11 +508,11 @@ function calcPercent(val1,val2){
 
 function commentCells(arr) {
     var table = document.createElement("TABLE");
-    table.classList.add("pbreak2");
+    
 
     for (var i = 0; i < arr.length; i++) {
         var row = table.insertRow(i);
-        
+        row.classList.add("pbreak2");
         row.insertCell(0).textContent = arr[i];
     }
     cell1.append(table);
