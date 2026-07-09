@@ -37,7 +37,8 @@ const lcchart3 = document.getElementById('lcchart3');
 const lcchart4 = document.getElementById('lcchart4');
 const lcchart5 = document.getElementById('lcchart5');
 const lcchart6 = document.getElementById('lcchart6');
-
+const cell1 = document.getElementById('cell1');
+console.log(cell1);
 // Working Arrays
 
 var delcomment = [];
@@ -152,7 +153,7 @@ function parse() {
             function textsplit(string) {
                 return string.replace(":", ":<br/>");
             }
-            sessionname.innerHTML = textsplit(results.data[1][2]);
+            sessionname.setHTMLUnsafe(textsplit(results.data[1][2]));
             sessiondate.textContent = results.data[1][5];
             sessionrespondents.textContent = results.data.length - 1;
             
@@ -462,6 +463,7 @@ function parse() {
             fourBarChart(lcchart4,LC4,chartyellow,chartlyellow);
             fourBarChart(lcchart5,LC5,chartyellow,chartlyellow);
             sixBarChart(lcchart6,LC6,chartyellow,chartlyellow);
+            commentCells(delcomment);
     }});
 };
 // Calculation and processing functions.
@@ -502,6 +504,19 @@ function NPS(arr) {
 function calcPercent(val1,val2){
     return parseFloat(((val1/val2.length) * 100).toFixed(0));
     
+}
+
+function commentCells(arr) {
+    arr.forEach((element) => {
+        var div = document.createElement("div");
+        div.classList.add("feedbackcell");
+        var p = document.createElement("p");
+        p.classList.add("feedbackcomment");
+        p.classList.add("pbreak");
+        p.textContent = element;
+        div.appendChild(p);
+        cell1.appendChild(div);
+    }) 
 }
 
 function likertValues(arr, ref) {

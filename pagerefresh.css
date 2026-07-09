@@ -141,7 +141,7 @@
     padding-top: 0.55em;
 }
 
-/* Facilitator Experience*/
+/* Facilitator Experience, Learning & Confidence*/
 
 .facilexperiencecontainer {
     break-after: always;
@@ -184,6 +184,8 @@
     font-size: 14pt;
 }
 
+/* Bar Chart Styles */
+
 .overallbarcontainer{
     position: relative;
     width: 750px;
@@ -207,6 +209,31 @@
 }
 
 
+/* Delegate Feedback */
+
+.feedbackcontainer {
+    
+    display: flex;
+    flex-direction: column;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    align-items: center;
+    border: 1px solid #f9cacf;
+}
+
+.feedbackcell {
+    width: 100%;
+    border-bottom: 1px solid #f9cacf;
+    padding: 1em;
+}
+
+.feedbacktitle {
+    text-align: center;
+    background-color: #f9cacf;
+    padding: 1rem;
+    width: 100%;
+}
+
 .footer {
     position: fixed;
     bottom: 0;
@@ -217,9 +244,6 @@
     left: 0;
 }
 
-.pagetable {
-    break-after: always;
-}
 
 @page {
     margin: 0;
