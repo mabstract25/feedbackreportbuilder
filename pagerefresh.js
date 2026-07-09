@@ -507,16 +507,25 @@ function calcPercent(val1,val2){
 }
 
 function commentCells(arr) {
-    arr.forEach((element) => {
-        var div = document.createElement("div");
-        div.classList.add("feedbackcell");
-        var p = document.createElement("p");
-        p.classList.add("feedbackcomment");
-        p.classList.add("pbreak");
-        p.textContent = element;
-        div.appendChild(p);
-        cell1.appendChild(div);
-    }) 
+    var table = document.createElement("TABLE");
+    table.classList.add("pbreak2");
+
+    for (var i = 0; i < arr.length; i++) {
+        var row = table.insertRow(i);
+        
+        row.insertCell(0).textContent = arr[i];
+    }
+    cell1.append(table);
+
+    // arr.forEach((element) => {
+    //     var div = document.createElement("div");
+    //     div.classList.add("feedbackcell");
+    //     var p = document.createElement("p");
+    //     p.classList.add("feedbackcomment");
+    //     p.textContent = element;
+    //     div.appendChild(p);
+    //     cell1.appendChild(div);
+    // }) 
 }
 
 function likertValues(arr, ref) {

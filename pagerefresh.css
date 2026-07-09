@@ -208,6 +208,9 @@
     page-break-after: always;
 }
 
+.pbreak2 {
+    clear: both; 
+}
 
 /* Delegate Feedback */
 
@@ -245,10 +248,13 @@
 }
 
 
+
 @page {
     margin: 0;
-    size: 210mm 297mm;
     
+    size: 210mm 297mm;
+    break-inside: avoid;
+    page-break-inside: avoid;
 }
 
 @media print {
