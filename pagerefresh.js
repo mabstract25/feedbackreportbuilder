@@ -507,25 +507,33 @@ function calcPercent(val1,val2){
 }
 
 function commentCells(arr) {
-    var table = document.createElement("TABLE");
     
+// At the start, set a container count to 0. Then try currentdiv = DIVID. 
+// When pagebreak is triggered, increase container count by 1, and then parse that into the DIV ID. 
+// Then create a container for the new comments to sit in.
+// When the total container height reaches 850 px, trigger a page break, and repeat function.
+// This should then continue infinitely until the comments.length is reached.
+// Use WHILE to monitor the container height.
 
-    for (var i = 0; i < arr.length; i++) {
-        var row = table.insertRow(i);
-        row.classList.add("pbreak2");
-        row.insertCell(0).textContent = arr[i];
+    const between = (x, min, max) => {
+        return x >= min && x <=max;
     }
-    cell1.append(table);
 
-    // arr.forEach((element) => {
-    //     var div = document.createElement("div");
-    //     div.classList.add("feedbackcell");
-    //     var p = document.createElement("p");
-    //     p.classList.add("feedbackcomment");
-    //     p.textContent = element;
-    //     div.appendChild(p);
-    //     cell1.appendChild(div);
-    // }) 
+    arr.forEach((element) => {
+        var height = cell1.clientHeight;
+        var div = document.createElement("div");
+        div.classList.add("feedbackcell");
+        var p = document.createElement("p");
+        p.classList.add("feedbackcomment");
+        p.textContent = element;
+        div.appendChild(p);
+       if (between(height, 800, 850)) {
+        div.classList.add("pbreak");
+        cell1.appendChild(div);
+       } else{
+        cell1.appendChild(div);
+       };
+    }) 
 }
 
 function likertValues(arr, ref) {

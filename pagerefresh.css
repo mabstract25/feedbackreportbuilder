@@ -12,6 +12,14 @@
 
 /* Header styles */
 
+.buttonwrap {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+}
+
 .header {
     position: fixed;
     top:  0;
@@ -19,6 +27,7 @@
     width: 100%;
     background-color: #ffffff;
     padding: 1rem;
+    display: block;
 }
 
 .doctitle {
@@ -237,7 +246,7 @@
 .footer {
     position: fixed;
     bottom: 0;
-    height: 100px;
+    height: 50px;
     width: 100%;
     background-color: #94cfc0;
     margin: 0;
