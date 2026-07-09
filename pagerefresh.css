@@ -208,9 +208,6 @@
     page-break-after: always;
 }
 
-.pbreak2 {
-    clear: both; 
-}
 
 /* Delegate Feedback */
 
@@ -251,27 +248,33 @@
 
 @page {
     margin: 0;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     size: 210mm 297mm;
-   
+    
 }
 
 @media print {
 
-    .pbreak2 {
-        break-inside: avoid;
-    }
+
 
     #PDFGO {
         display: none;
     }
 
+    .pbreak2 {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
 
+    .feedbackcontainer {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
 
     .middle {
         /* background-color: red; */
         padding-top: 50px;
-    
+        
     }
 
 
