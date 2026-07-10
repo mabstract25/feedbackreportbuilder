@@ -14,7 +14,7 @@
 //     html2pdf().set(printopt).from(print).save();
 // }
 
-
+// Form setup
 const form = document.querySelector("form");
 
 form.addEventListener("submit", e => {
@@ -25,6 +25,11 @@ form.addEventListener("submit", e => {
     form.reset();
 })
 
+var logolist = {
+    Rath: "/Logos/Rath_Logo.png",
+    Swiss: "/Logos/Swiss_Logo.png",
+    HS: "/Logos/HS_Logo.png",
+};
 
 
 
