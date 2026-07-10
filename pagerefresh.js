@@ -507,33 +507,59 @@ function calcPercent(val1,val2){
 }
 
 function commentCells(arr) {
-    
-// At the start, set a container count to 0. Then try currentdiv = DIVID. 
-// When pagebreak is triggered, increase container count by 1, and then parse that into the DIV ID. 
-// Then create a container for the new comments to sit in.
-// When the total container height reaches 850 px, trigger a page break, and repeat function.
-// This should then continue infinitely until the comments.length is reached.
-// Use WHILE to monitor the container height.
 
+    var currentdiv = cell1;
+    var counter = 0;
+    // Function for building a new container with header
+    function newCont(ref) {
+        cont = document.createElement("div");
+        var ID = 'Container' + counter;
+        cont.id = ID;
+        cont.classList.add("feedbackcontainer");
+        var title = document.createElement("div");
+        title.classList.add("feedbacktitle");
+        cont.appendChild(title);
+        var h2 = document.createElement("h2");
+        h2.textContent = "Delegate Feedback";
+        title.appendChild(h2);
+        ref.after(cont);
+        currentdiv = document.getElementById(ID);
+    }
+    // Set the first container in place
+    newCont(currentdiv);
+    // Formula for calculating a value range
     const between = (x, min, max) => {
         return x >= min && x <=max;
     }
-
+    // For each element in the comment array.
     arr.forEach((element) => {
-        var height = cell1.clientHeight;
+        var height = currentdiv.clientHeight;
         var div = document.createElement("div");
         div.classList.add("feedbackcell");
         var p = document.createElement("p");
         p.classList.add("feedbackcomment");
         p.textContent = element;
         div.appendChild(p);
-       if (between(height, 800, 850)) {
-        div.classList.add("pbreak");
-        cell1.appendChild(div);
-       } else{
-        cell1.appendChild(div);
-       };
-    }) 
+        // For the length of the array, do:
+        for (var i = 0; i < arr.length; i++) {
+            if (height <= 800) {
+            currentdiv.appendChild(div);
+            } else if (between(height, 801, 850)) {
+            currentdiv.classList.add("pbreak");
+            newCont(currentdiv);
+            counter += 1;
+            // Resetting the height, just in case.
+            height = currentdiv.clientHeight;
+            };
+        };
+
+        
+    });
+    // TEMPORARY - Trim the last header, as container0 duplicates for some reason.
+    trim = currentdiv.nextSibling;
+    trim.remove();
+
+
 }
 
 function likertValues(arr, ref) {
