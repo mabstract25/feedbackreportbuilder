@@ -10,6 +10,20 @@
     height: 20px;
 }
 
+#PDFGO {
+    background-color: #bcdff3;
+    height: 12rem;
+    top: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.formcontainer {
+    display: flex;
+    flex-direction: column;
+}
+
 /* Header styles */
 
 .buttonwrap {

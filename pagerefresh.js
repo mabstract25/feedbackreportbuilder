@@ -14,6 +14,21 @@
 //     html2pdf().set(printopt).from(print).save();
 // }
 
+
+const form = document.querySelector("form");
+
+form.addEventListener("submit", e => {
+    
+    e.preventDefault();
+    const file = e.target[0].files[0];
+    parse(file);
+    form.reset();
+})
+
+
+
+
+
 const sessionname = document.getElementById('sessionname');
 const sessiondate = document.getElementById('sessiondate');
 const sessionrespondents = document.getElementById('sessionrespondents');
@@ -137,8 +152,8 @@ var LC6 = {
 };
 
 
-function parse() {
-    var file = '/example.csv';
+function parse(file) {
+    // var file = '/example.csv';
 
     Papa.parse(file, {
         header: false,

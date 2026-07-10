@@ -10,9 +10,38 @@
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
     
 </head>
-<body onload="parse()" >
+<body>
     
-<div class="buttonwrap"><button id="PDFGO" onclick="window.print()">Render PDF</button></div>
+<div class="buttonwrap" id="PDFGO">
+    <div class="Introtext">
+        <h2>Feedback Report Generator</h2>
+        <p>Use the buttons below to add your CSV and client logo.</p>
+        <p>Before uploading a new file, you must reset the page.</p>
+    </div>
+    <div class="formcontainer">
+        <div>
+            <button onclick="location.reload()">Reset Page
+            </button>
+        </div>
+        <form>
+        <div>
+            <label for="file-upload">Upload CSV</label>
+            <input type="file" name="file-upload" id="file-upload" accept=".csv" required>
+            <label for="clientselect">Select Client</label>
+            <select name="clientselect" id="clientselect">
+                <option value="Rath">Rath</option>
+                <option value="Swiss"></option>
+            </select>
+        </div>
+        <div>
+            <button type="submit" id="submit-file">Upload File</button>
+        </div>
+        </form>
+        <div>
+            <button onclick="window.print()">Render PDF</button>
+        </div>
+    </div>
+</div>
 <div id="PDFcontainer">
     
         <div class="header">
