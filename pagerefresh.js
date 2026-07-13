@@ -25,7 +25,7 @@ form.addEventListener("submit", e => {
     form.reset();
 })
 
-var logolist = {
+const logolist = {
     Rath: "/Logos/Rath_Logo.png",
     Swiss: "/Logos/Swiss_Logo.png",
     HS: "/Logos/HS_Logo.png",
@@ -37,6 +37,8 @@ var logolist = {
 const sessionname = document.getElementById('sessionname');
 const sessiondate = document.getElementById('sessiondate');
 const sessionrespondents = document.getElementById('sessionrespondents');
+const clientlogo = document.getElementById('clientlogo');
+const clientselect = document.getElementById('clientselect');
 
 const doughnut1 = document.getElementById('doughnut1');
 const doughnut1label = document.getElementById('dough1text');
@@ -486,6 +488,22 @@ function parse(file) {
             commentCells(delcomment);
     }});
 };
+
+// General functions
+
+
+
+clientselect.addEventListener("change", (e) => {
+    let select = e.target.value;
+    let obj = logolist;
+    
+    clientlogo.src = obj[select];
+})
+
+
+
+// getClientImage(logolist,clientselect,clientlogo);
+
 // Calculation and processing functions.
 function sum(arr) {
     return arr.reduce(function (a, b) {
