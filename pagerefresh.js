@@ -28,6 +28,8 @@ const sessionlocation = document.getElementById('sessionlocation');
 const clientlogo = document.getElementById('clientlogo');
 const clientselect = document.getElementById('clientselect');
 const locationselect = document.getElementById('locationselect');
+const date = document.getElementById('date');
+const today = new Date();
 
 const doughnut1 = document.getElementById('doughnut1');
 const doughnut1label = document.getElementById('dough1text');
@@ -475,6 +477,7 @@ function parse(file) {
             fourBarChart(lcchart5,LC5,chartyellow,chartlyellow);
             sixBarChart(lcchart6,LC6,chartyellow,chartlyellow);
             commentCells(delcomment);
+            todayDate(today,date);
     }});
 };
 
@@ -494,6 +497,14 @@ locationselect.addEventListener("change", (e) => {
     sessionlocation.textContent = select;
 })
 
+function todayDate(today,target) {
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    today = dd + '/' + mm + '/' + yyyy;
+    target.textContent = today;
+}
 
 
 // getClientImage(logolist,clientselect,clientlogo);
