@@ -230,7 +230,7 @@ function parse(file) {
 
             // Chart Defaults
             Chart.defaults.font.size = 14;
-            Chart.defaults.font.family = 'Aptos';
+            Chart.defaults.font.family = "aptos-woff, Helvetica, sans-serif";
             Chart.defaults.font.style = 'normal';
             Chart.defaults.color = '#000000';
             
@@ -299,7 +299,7 @@ function parse(file) {
                     },
                     options: {
                         indexAxis: 'y',
-                        devicePixelRatio: 1.5,
+                        devicePixelRatio: 2,
                         maintainAspectRatio: false,
                         responsive: true,
                         elements: {
@@ -364,7 +364,7 @@ function parse(file) {
                     },
                     options: {
                         indexAxis: 'y',
-                        devicePixelRatio: 1.5,
+                        devicePixelRatio: 2,
                         maintainAspectRatio: false,
                         responsive: true,
                         elements: {
@@ -428,7 +428,7 @@ function parse(file) {
                     },
                     options: {
                         indexAxis: 'y',
-                        devicePixelRatio: 1.5,
+                        devicePixelRatio: 2,
                         maintainAspectRatio: false,
                         responsive: true,
                         elements: {

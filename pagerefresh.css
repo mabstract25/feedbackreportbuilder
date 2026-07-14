@@ -1,8 +1,12 @@
+@font-face {
+    font-family: aptos-woff;
+    src: url(/fonts/APTOS.woff);
+}
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Aptos, Helvetica, sans-serif;
+    font-family: aptos-woff, Helvetica, sans-serif;
 }
 
 body {
@@ -144,6 +148,7 @@ label {
     flex-direction: column;
     gap: 2rem;
     border: 1px solid #d4ece6;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .overalltitle {
@@ -231,6 +236,7 @@ label {
     break-inside: avoid;
     page-break-inside: avoid;
     align-items: center;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .faciltitle {
@@ -291,6 +297,7 @@ label {
     width: 100%;
     border-bottom: 1px solid #f9cacf;
     padding: 1em;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .feedbacktitle {
