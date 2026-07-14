@@ -283,10 +283,24 @@ function parse(file) {
                         data: [ref.phrOneCount,ref.phrTwoCount,ref.phrThreeCount,ref.phrFourCount,ref.phrFiveCount,ref.phrSixCount],
                         backgroundColor: colour1,
                         borderColor: '#ffffff',
+                        datalabels: {
+                            anchor: 'end',
+                            align: 'right',
+                            clamp: true,
+                            color: '#000000',
+                            formatter: function (value) {
+                                    return value + '%';
+                                },
+                        }
                     },{
                         data: [(100 - ref.phrOneCount),(100 - ref.phrTwoCount),(100 - ref.phrThreeCount),(100 - ref.phrFourCount),(100 - ref.phrFiveCount),(100 - ref.phrSixCount)],
                         backgroundColor: colour2,
                         borderColor: '#ffffff',
+                        datalabels: {
+                            labels: {
+                                value: null
+                            }
+                        }
                     },
                     ],
                 };
@@ -307,21 +321,14 @@ function parse(file) {
                                 borderWidth: 2,
                             }
                         },
-                        
+                        layout: {
+                            padding: {
+                                left: 50,
+                                right:50
+                            }
+                        },
                         plugins: {
-                            datalabels: {
-                                color: '#000000',
-                                formatter: function (value) {
-                                    if (value >= 5){
-                                        return value + '%';
-                                    } else{
-                                        return '';
-                                    }
-                                    
-                                },
-                                
-                                
-                            },
+                            
                             legend: {
                                 display: false,
                             }
