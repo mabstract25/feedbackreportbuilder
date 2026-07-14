@@ -28,13 +28,16 @@
             <label for="file-upload">Upload CSV</label>
             <input type="file" name="file-upload" id="file-upload" accept=".csv" required>
             <label for="clientselect">Select Client</label>
-            <select name="clientselect" id="clientselect" value="">
+            <select name="clientselect" id="clientselect">
+                <option value="">--Choose a client--</option>
+                <option value="AB">Aberd</option>
                 <option value="Rath">Rath</option>
                 <option value="Swiss">Swiss</option>
                 <option value="HS">HS</option>
             </select>
             <label for="locationselect">Select Location</label>
             <select name="locationselect" id="locationselect" value="">
+                <option value="">--Choose a location--</option>
                 <optgroup label="UK">
                     <option value="Bristol">Bristol</option>
                     <option value="Edinburgh">Edinburgh</option>
@@ -81,7 +84,7 @@
             <div class="headerinner">
                 
                 <div class="logoblock">
-                    <div class="ABSTRACTlogo"><img src="/Abstractlogo.svg" alt=""></div>
+                    <div class="ABSTRACTlogo"><img src="" alt=""></div>
                     <div class="clientlogo"><img id="clientlogo" src="/aberdeenlogo.png" alt=""></div>
                 </div>
                 <h1 class="doctitle">Post-Course Survey Report</h1>
@@ -95,7 +98,7 @@
                     <tr>
                         <th><p>Session:</p></td>
                         <th><p>Location:</p></td>
-                        <td><p id="sessionlocation">London</p></td>
+                        <td><p id="sessionlocation"></p></td>
                     </tr>
                     <tr>
                         <td rowspan="2"><p id="sessionname" >Mastering Strategic Business Development</p></td>

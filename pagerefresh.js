@@ -11,6 +11,7 @@ form.addEventListener("submit", e => {
 })
 
 const logolist = {
+    AB: "/Logos/ab_Logo.png",
     Rath: "/Logos/Rath_Logo.png",
     Swiss: "/Logos/Swiss_Logo.png",
     HS: "/Logos/HS_Logo.png",
