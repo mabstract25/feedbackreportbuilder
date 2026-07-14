@@ -24,7 +24,7 @@
             </button>
         </div>
         <form>
-        <div>
+        <div class="formclients">
             <label for="file-upload">Upload CSV</label>
             <input type="file" name="file-upload" id="file-upload" accept=".csv" required>
             <label for="clientselect">Select Client</label>
@@ -32,6 +32,38 @@
                 <option value="Rath">Rath</option>
                 <option value="Swiss">Swiss</option>
                 <option value="HS">HS</option>
+            </select>
+            <label for="locationselect">Select Location</label>
+            <select name="locationselect" id="locationselect" value="">
+                <optgroup label="UK">
+                    <option value="Bristol">Bristol</option>
+                    <option value="Edinburgh">Edinburgh</option>
+                    <option value="Glasgow">Glasgow</option>
+                    <option value="London">London</option>
+                    <option value="Leeds">Leeds</option>
+                    <option value="Liverpool">Liverpool</option>
+                    <option value="York">York</option>
+                    
+                </optgroup>
+                <optgroup label="USA">
+                    <option value="Miami">Miami</option>
+                    <option value="New York">New York</option>
+                    <option value="San Francisco">San Francisco</option>
+                </optgroup>
+                <optgroup label="EMEA">
+                    <option value="Dublin">Dublin</option>
+                    <option value="Dubai">Dubai</option>
+                    <option value="Geneva">Geneva</option>
+                    <option value="Jersey">Jersey</option>
+                    <option value="Warsaw">Warsaw</option>
+                    <option value="Zurich">Zurich</option>
+                </optgroup>
+                <optgroup label="ASIA">
+                    <option value="Delhi">Delhi</option>
+                    <option value="Hong Kong">Hong Kong</option>
+                    <option value="Shanghai">Shanghai</option>
+                    <option value="Singapore">Singapore</option>
+                </optgroup>
             </select>
         </div>
         <div>
@@ -63,7 +95,7 @@
                     <tr>
                         <th><p>Session:</p></td>
                         <th><p>Location:</p></td>
-                        <td><p>London</p></td>
+                        <td><p id="sessionlocation">London</p></td>
                     </tr>
                     <tr>
                         <td rowspan="2"><p id="sessionname" >Mastering Strategic Business Development</p></td>

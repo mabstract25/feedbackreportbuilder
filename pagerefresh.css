@@ -51,6 +51,10 @@ label {
     
 }
 
+.formclients {
+    padding-bottom: 1rem;
+}
+
 /* Header styles */
 
 .ABSTRACTlogo, .clientlogo {

@@ -1,18 +1,3 @@
-// HTML2PDF Test - possibly useful, unsure.
-
-// const print = document.getElementById('PDFcontainer');
-// var printopt = {
-//     margin: 0,
-//     filename: 'testpdf',
-//     image: {type: 'jpeg', quality: 0.98},
-//     html2canvas: {dpi: 96, letterRendering: true },
-//     jsPDF: {unit: 'cm', format: 'a4', compress: 'false', orientation: 'portrait'},
-
-
-// } 
-// function printpdf() {
-//     html2pdf().set(printopt).from(print).save();
-// }
 
 // Form setup
 const form = document.querySelector("form");
@@ -34,11 +19,14 @@ const logolist = {
 
 
 
+
 const sessionname = document.getElementById('sessionname');
 const sessiondate = document.getElementById('sessiondate');
 const sessionrespondents = document.getElementById('sessionrespondents');
+const sessionlocation = document.getElementById('sessionlocation');
 const clientlogo = document.getElementById('clientlogo');
 const clientselect = document.getElementById('clientselect');
+const locationselect = document.getElementById('locationselect');
 
 const doughnut1 = document.getElementById('doughnut1');
 const doughnut1label = document.getElementById('dough1text');
@@ -498,6 +486,11 @@ clientselect.addEventListener("change", (e) => {
     let obj = logolist;
     
     clientlogo.src = obj[select];
+})
+
+locationselect.addEventListener("change", (e) => {
+    let select = e.target.value;
+    sessionlocation.textContent = select;
 })
 
 
