@@ -5,6 +5,11 @@
     font-family: Aptos, Helvetica, sans-serif;
 }
 
+body {
+    background-image: url(/A4PageBG.png);
+    background-repeat: repeat-y;
+    background-size: 100%;
+}
 
 .spacer {
     height: 20px;
@@ -296,9 +301,18 @@ label {
     bottom: 0;
     height: 50px;
     width: 100%;
-    background-color: #94cfc0;
+    background-color: #eaf5f2;
     margin: 0;
     left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8em;
+}
+
+.footerbold {
+    font-weight: bold;
 }
 
 
@@ -308,11 +322,16 @@ label {
     
     size: 210mm 297mm;
     
+    
 }
 
 @media print {
 
-
+    @page {
+        background-image:url(A4PageBG.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 
     #PDFGO {
         display: none;
