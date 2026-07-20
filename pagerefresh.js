@@ -656,6 +656,7 @@ function likertValues(arr, ref) {
     ref.phrThreeCount = calcPercent(ref.phrThreeCount,arr);
     ref.phrFourCount = calcPercent(ref.phrFourCount,arr);
     ref.phrFiveCount = calcPercent(ref.phrFiveCount,arr);
+    ref.phrSixCount = calcPercent(ref.phrSixCount,arr);
     
 }
 
@@ -682,7 +683,7 @@ function lclikertValues(arr, ref) {
     ref.phrThreeCount = calcPercent(ref.phrThreeCount,arr);
     ref.phrFourCount = calcPercent(ref.phrFourCount,arr);
     ref.phrFiveCount = calcPercent(ref.phrFiveCount,arr);
-    
+    ref.phrSixCount = calcPercent(ref.phrSixCount,arr);
 }
 
 
