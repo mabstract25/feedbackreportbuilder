@@ -165,14 +165,32 @@ label {
 
 /* Session overview table */
 
+.sessionoverview {
+    display: flex;
+    gap: 1.5em;
+}
+.sessionleftcol {
+    width: 60%;
+}
+
+.sessionrightcol table th {
+    padding-right: 1em;
+}
+
 .sessionoverviewtable {
     border-collapse: collapse;
     width: 100%;
 }
 
-.sessionoverview table, th, td, tr {
-    border: 0.15em solid #76a69a;
+.sessionoverviewtable,
+.sessionoverviewtable th,
+.sessionoverviewtable td {
+    /* border: 0.10em solid #76a69a; */
     padding: 0.3em;
+}
+
+.sessionoverviewtable th {
+    border: 0.10em solid #76a69a; 
 }
 
 .sessionoverviewtable th {
