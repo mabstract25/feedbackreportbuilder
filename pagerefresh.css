@@ -43,7 +43,7 @@ body {
 
 .buttonwrap select {
     background-color: #fff;
-    border: 1px solid lightgray;
+    border: 0.15em solid lightgray;
     border-radius: 0.2rem;
     padding: 0rem 0.4rem;
     font-size: 1rem;
@@ -103,8 +103,9 @@ label {
 .ABSTRACTlogo, .clientlogo {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-end;
       width: 6rem;
+      height: auto;
 }
 .ABSTRACTlogo img{
     width: 6rem;
@@ -137,6 +138,7 @@ label {
     flex-direction: column;
     justify-content: space-evenly;
     height: 100%;
+    padding: 0 1rem;
 }
 
 .logoblock {
@@ -169,7 +171,7 @@ label {
 }
 
 .sessionoverview table, th, td, tr {
-    border: 1px solid #76a69a;
+    border: 0.15em solid #76a69a;
     padding: 0.3em;
 }
 
@@ -186,7 +188,7 @@ label {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    border: 1px solid #d4ece6;
+    border: 0.15em solid #d4ece6;
     background-color: rgba(255, 255, 255, 0.8);
 }
 
@@ -256,13 +258,13 @@ label {
 .facilexperiencecontainer {
     break-after: always;
     page-break-after:always;
-    border: 1px solid #bcdff3;
+    border: 0.15em solid #bcdff3;
     height: 350px;
     gap: 1rem;
 }
 
 .lccontainer {
-    border: 1px solid #fee9b4;
+    border: 0.15em solid #fee9b4;
     height: 300px;
     gap: 0.1rem;
 }
@@ -329,12 +331,17 @@ label {
     break-inside: avoid;
     page-break-inside: avoid;
     align-items: center;
-    border: 1px solid #f9cacf;
+    border-top: 0.15em solid #f9cacf;
+    border-left: 0.15em solid #f9cacf;
+    border-right: 0.15em solid #f9cacf;
+    border-bottom: 0;
 }
+
+
 
 .feedbackcell {
     width: 100%;
-    border-bottom: 1px solid #f9cacf;
+    border-bottom: 0.15em solid #f9cacf;
     padding: 1em;
     background-color: rgba(255, 255, 255, 0.8);
 }
