@@ -173,30 +173,41 @@ label {
     width: 60%;
 }
 
-.sessionrightcol table th {
-    padding-right: 1em;
+.sessionrightcol {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
 }
 
-.sessionoverviewtable {
-    border-collapse: collapse;
-    width: 100%;
+.sessionrightcol .overviewhead {
+    text-align: right;
 }
 
-.sessionoverviewtable,
-.sessionoverviewtable th,
-.sessionoverviewtable td {
+.sesstabrow {
+    display: flex;
+    gap: 0.2em;
+}
+
+.sesstabrow .overviewhead {
+    width: 7em;
+    
+}
+
+.overviewhead,
+.overviewtext{
     /* border: 0.10em solid #76a69a; */
     padding: 0.3em;
+    align-content: center;
 }
 
-.sessionoverviewtable th {
-    border: 0.10em solid #76a69a; 
-}
-
-.sessionoverviewtable th {
+.overviewhead {
+    /* border: 0.15em solid #76a69a;  */
     text-align: left;
     background-color: #d4ece6;
+    font-weight: bold;
 }
+
+
 
 /* Overall Pie Charts */
 
