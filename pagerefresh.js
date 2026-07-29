@@ -137,7 +137,7 @@ var LC6holder = [];
 var LC6 = {
     phrOne: "None at this time",
     phrOneCount: 0,
-    phrTwo: "Something else",
+    phrTwo: "Something else (please add below)",
     phrTwoCount: 0,
     phrThree: "More practice opportunities",
     phrThreeCount: 0,
@@ -278,7 +278,7 @@ function parse(file) {
             // Bar chart generaton
             function sixBarChart(canvasID,ref,colour1,colour2){
                 tdata = {
-                    labels: [ref.phrOne,ref.phrTwo,ref.phrThree,ref.phrFour,ref.phrFive,ref.phrSix],
+                    labels: [ref.phrOne,(ref.phrTwo.slice(0, 15)),ref.phrThree,ref.phrFour,ref.phrFive,ref.phrSix],
                     datasets: [{
                         data: [ref.phrOneCount,ref.phrTwoCount,ref.phrThreeCount,ref.phrFourCount,ref.phrFiveCount,ref.phrSixCount],
                         backgroundColor: colour1,
