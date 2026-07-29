@@ -257,12 +257,12 @@ function parse(file) {
             doughnutChart(doughnut2, delcontent, doughnut2label);
 
             function rotateSVG(target,value,text){
-                if (value > 0){
+                if (value >= 0){
                     target.style.transform = "rotate(" + (value + (value * 0.40)) + "deg)";
                     target.style.webkitTransform = "rotate(" + (value + (value * 0.40)) + "deg)";
                     target.style.moztransform = "rotate(" + (value + (value * 0.40)) + "deg)";
                     text.textContent = "+" + value; 
-                } else if (value < 0){
+                } else if (value <= 0){
                     target.style.transform = "rotate(" + (value + (value * 0.40)) + "deg)";
                     target.style.webkitTransform = "rotate(" + (value + (value * 0.40)) + "deg)";
                     target.style.moztransform = "rotate(" + (value + (value * 0.40)) + "deg)";
