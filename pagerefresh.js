@@ -170,13 +170,34 @@ function parse(file) {
             sessiondate.textContent = results.data[1][5];
             sessionrespondents.textContent = results.data.length - 1;
             
-
+            
             
             // Process the data, extract row by row into arrays.
             for(var i = 1; i < results.data.length; i++) {
                 
+                const reslength = results.data[1].length;
+                
                 // Creating Pie & Comments Data
-                var testrow = {
+                if (reslength === 31){
+                    var testrow = {
+                    
+                    comments: results.data[i][18],
+                    overall: results.data[i][21],
+                    content: results.data[i][20],
+                    modNPS: results.data[i][22],
+                    orgNPS: results.data[i][23],
+                    // Creating Likert charts (Horizontal Bars)
+                    facilexp: results.data[i][26],
+                    lc1: results.data[i][30],
+                    lc2: results.data[i][25],
+                    lc3: results.data[i][28],
+                    lc4: results.data[i][27],
+                    lc5: results.data[i][24],
+                    lc6: results.data[i][29],
+
+                    };
+                } else if (reslength === 32) {
+                    var testrow = {
                     
                     comments: results.data[i][18],
                     overall: results.data[i][21],
@@ -192,7 +213,9 @@ function parse(file) {
                     lc5: results.data[i][24],
                     lc6: results.data[i][29],
 
-                };
+                    };
+                }else;
+                
                 
                 
                 delcomment.push(testrow.comments);
@@ -677,6 +700,8 @@ function lclikertValues(arr, ref) {
                     
       
     });
+
+    
     
     ref.phrOneCount = calcPercent(ref.phrOneCount,arr);
     ref.phrTwoCount = calcPercent(ref.phrTwoCount,arr);
