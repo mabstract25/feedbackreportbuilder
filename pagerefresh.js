@@ -595,6 +595,10 @@ function calcPercent(val1,val2){
 
 function commentCells(arr) {
 
+    if(arr.length === 0){
+        arr.push("No delegate comments were received for this session.")
+    };
+
     var currentdiv = cell1;
     var counter = 0;
     // Function for building a new container with header
